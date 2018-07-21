@@ -69,7 +69,7 @@ const Fonts = {
   light: 'Roboto-Light',
   regular: 'Roboto-Regular',
   bold: 'Roboto-Medium',
-  logo: 'Righteous-Regular',
+  logo: 'Roboto-Black',
 };
 
 const FontBaseValue = scale(15);
@@ -84,6 +84,7 @@ export const KittenTheme = {
     google: Colors.google,
     facebook: Colors.facebook,
     brand: Colors.accent,
+    logo:'white',
     text: {
       base: Colors.foreground,
       secondary: Colors.secondaryForeground,

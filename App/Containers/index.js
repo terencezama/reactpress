@@ -1,8 +1,6 @@
-import LoginScreen from './LoginScreen';
-import ProductEditorScreen from './ProductEditorScreen';
-import ProductsListScreen from './ProductsListScreen';
+import AuthLoginScreen from './AuthLoginScreen';
+import OnboardingScreen from './OnboardingScreen';
 export {
-    ProductsListScreen,
-    LoginScreen,
-    ProductEditorScreen
+    AuthLoginScreen,
+    OnboardingScreen
 };

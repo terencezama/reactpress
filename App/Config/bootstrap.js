@@ -37,6 +37,8 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkText', 'logo', {
     fontFamily: theme => theme.fonts.family.logo,
+    color: theme => theme.colors.logo,
+    fontSize:35
   });
 
   RkTheme.setType('RkText', 'moon', {

@@ -1,17 +1,15 @@
 import { StackNavigator } from 'react-navigation';
 import {
-    ProductsListScreen,
-    LoginScreen,
-    ProductEditorScreen
+    OnboardingScreen,
+    AuthLoginScreen
 } from '../Containers';
 import styles from './Styles/NavigationStyles';
 const PrimaryNav = StackNavigator({
-    ProductsListScreen: { screen: ProductsListScreen },
-    LoginScreen: { screen: LoginScreen },
-    ProductEditorScreen: { screen: ProductEditorScreen }
+    AuthLoginScreen: { screen: AuthLoginScreen },
+    OnboardingScreen: { screen: OnboardingScreen },
 }, {
     headerMode: 'none',
-    initialRouteName: 'ProductEditorScreen',
+    initialRouteName: 'OnboardingScreen',
     navigationOptions: { headerStyle: styles.header }
 });
 export default PrimaryNav;
