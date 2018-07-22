@@ -2,13 +2,14 @@ import {
   StatusBar,
   StyleSheet
 } from 'react-native';
-import {RkTheme} from 'react-native-ui-kitten';
-import {KittenTheme} from './theme';
+import { RkTheme } from 'react-native-ui-kitten';
+import { KittenTheme } from './theme';
 // import {AvatarTypes} from '../components/avatar/types';
 // import {GradientButtonTypes} from '../components/gradientButton/types';
 // import {SwitchTypes} from '../components/switch/types';
 // import {SocialBarTypes} from '../components/socialBar/types';
-import {scale, scaleModerate, scaleVertical} from '../utils/scale';
+import { scale, scaleModerate, scaleVertical } from '../utils/scale';
+import { Colors } from '../Themes';
 
 export let bootstrap = () => {
 
@@ -17,6 +18,37 @@ export let bootstrap = () => {
   RkTheme.setType('RkButton', 'disable', {
     backgroundColor: 'gray'
   });
+  RkTheme.setType('RkButton', 'auth', {
+    backgroundColor: 'transparent',
+    borderRadius:2,
+    borderWidth:1,
+    borderColor:theme => theme.colors.auth.input.border,
+    color:theme => theme.colors.auth.input.text,
+  });
+  RkTheme.setType('RkButton', 'authDisable', {
+    borderColor:theme => theme.colors.auth.input.disabled,
+    color:theme => theme.colors.auth.input.disabled,
+  });
+  RkTheme.setType('RkButton', 'authLink', {
+    color: theme => theme.colors.auth.input.text,
+    backgroundColor: 'transparent',
+  });
+  RkTheme.setType('RkTextInput', 'auth', {
+    input: {
+      fontFamily: theme => theme.fonts.family.bold,
+      margin: 0,
+      padding: 0,
+    },
+    color: theme => theme.colors.auth.input.text,
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    labelColor: theme => theme.colors.auth.input.label,
+    placeholderTextColor: theme => theme.colors.auth.input.placeholder,
+    underlineColor: theme => theme.colors.auth.input.line,
+    // height:50,
+    label:{
+      fontSize:15
+    }
+  },"rounded");
 
   /*
    RkText types
@@ -38,7 +70,7 @@ export let bootstrap = () => {
   RkTheme.setType('RkText', 'logo', {
     fontFamily: theme => theme.fonts.family.logo,
     color: theme => theme.colors.logo,
-    fontSize:35
+    fontSize: 30
   });
 
   RkTheme.setType('RkText', 'moon', {
@@ -192,9 +224,7 @@ export let bootstrap = () => {
     }
   });
 
-  RkTheme.setType('RkButton', 'link', {
-    color: theme => theme.colors.primary,
-  });
+  
 
   RkTheme.setType('RkButton', 'contrast', {
     color: theme => theme.colors.text.base,
@@ -248,15 +278,16 @@ export let bootstrap = () => {
   RkTheme.setType('RkTextInput', 'basic', {
     input: {
       fontFamily: theme => theme.fonts.family.bold,
-      margin:0,
-    padding:0,
+      margin: 0,
+      padding: 0,
     },
     color: theme => theme.colors.text.base,
     backgroundColor: theme => theme.colors.control.background,
     labelColor: theme => theme.colors.input.label,
     placeholderTextColor: theme => theme.colors.input.placeholder,
-    underlineColor:'gray',
+    underlineColor: 'gray',
   });
+
 
   RkTheme.setType('RkTextInput', 'rounded', {
     borderWidth: 1,

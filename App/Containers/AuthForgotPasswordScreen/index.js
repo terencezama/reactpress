@@ -13,9 +13,9 @@ import styles from './styles.js'
 import LinearGradient from 'react-native-linear-gradient'
 import { Colors, Images, Metrics } from '../../Themes'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import LoginForm from '../../Components/Forms/LoginForm'
+import ForgotPasswordForm from '../../Components/Forms/ForgotPasswordForm'
 import i18n from 'react-native-i18n'
-class AuthLoginScreen extends Component {
+class AuthForgotPasswordScreen extends Component {
   static navigationOptions = {
     header: null
   };
@@ -47,7 +47,7 @@ class AuthLoginScreen extends Component {
                 <Image style={styles.logo} source={Images.logo} resizeMode={"contain"} />
                 <RkText rkType={'center logo'}>{i18n.t('app_name')} </RkText>
               </View>
-              <LoginForm style={{ flex: 1 }} onSubmit={this._onSubmit} />
+              <ForgotPasswordForm style={{ flex: 1 }} onSubmit={this._onSubmit} />
 
             </View>
           </ScrollView>
@@ -67,4 +67,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthLoginScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(AuthForgotPasswordScreen)

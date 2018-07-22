@@ -13,7 +13,7 @@ export default RkStyleSheet.create(theme => ({
         // backgroundColor: theme.colors.screen.base
     },
     logo: {
-        width: Metrics.screenWidth / 3,
+        width: Metrics.screenWidth / 2,
         alignSelf: 'center',
         opacity:0.9,
         marginBottom: 8,
@@ -25,7 +25,7 @@ export default RkStyleSheet.create(theme => ({
     },
     body:{
         flex:1,
-        justifyContent: 'space-around',
+        // justifyContent: 'space-around',
         padding: 8,
     },
 }));

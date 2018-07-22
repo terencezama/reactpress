@@ -1,15 +1,14 @@
 import React from 'react'
-import { View } from 'react-native'
+import {View} from 'react-native'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import ReduxInput from '../ReduxInput'
-import { RkButton } from 'react-native-ui-kitten'
+import {RkButton } from 'react-native-ui-kitten'
 
 import { ApplicationStyles } from '../../Themes'
-import { Validate, Normalize } from '../../Lib'
+import {Validate,Normalize} from '../../Lib'
 import i18n from 'react-native-i18n'
-
-const LoginForm = ({
+const ForgotPasswordForm = ({
     invalid, handleSubmit, onSubmit, processing, update
 }) => {
 
@@ -24,14 +23,6 @@ const LoginForm = ({
                     keyboardType='email-address'
                     rkType="auth"
                 />
-                <ReduxInput
-                    key={2}
-                    label={i18n.t('auth_password')}
-                    name='password'
-                    secureTextEntry
-                    validate={[Validate.isMinLength6, Validate.isRequired]}
-                    rkType="auth"
-                />
             </View>
             <RkButton
                 rkType={invalid ? 'xlarge auth authDisable' : 'xlarge auth'}
@@ -40,20 +31,20 @@ const LoginForm = ({
                 style={{ marginBottom: 10, }}
                 disabled={invalid}
             >
-                {i18n.t('auth_login')}
+                {i18n.t('auth_submit')}
             </RkButton>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            {/* <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <RkButton rkType={'authLink stretch'}>{i18n.t('auth_register')}</RkButton>
                 <RkButton rkType={'authLink stretch'}>{i18n.t('auth_forgotpassword')}</RkButton>
-            </View>
+            </View> */}
         </View>
 
     )
 }
 
 export default reduxForm({
-    form: 'LoginForm',
-})(LoginForm)
+    form: 'ForgotPasswordForm',
+})(ForgotPasswordForm)
 
 
 

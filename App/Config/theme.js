@@ -85,6 +85,20 @@ export const KittenTheme = {
     facebook: Colors.facebook,
     brand: Colors.accent,
     logo:'white',
+    auth:{
+      control:{
+        background:'transparent'
+      },
+      input:{
+        label:'white',
+        text:'white',
+        placeholder:'white',
+        line:'transparent',
+        disabled:'rgba(255,255,255,0.3)',
+        border:'white'
+        
+      }
+    },
     text: {
       base: Colors.foreground,
       secondary: Colors.secondaryForeground,

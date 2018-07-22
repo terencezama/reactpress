@@ -1,15 +1,20 @@
 import { StackNavigator } from 'react-navigation';
 import {
     OnboardingScreen,
-    AuthLoginScreen
+    AuthLoginScreen,
+    AuthRegisterScreen,
+    AuthForgotPasswordScreen
 } from '../Containers';
 import styles from './Styles/NavigationStyles';
 const PrimaryNav = StackNavigator({
-    AuthLoginScreen: { screen: AuthLoginScreen },
     OnboardingScreen: { screen: OnboardingScreen },
+    AuthLoginScreen: { screen: AuthLoginScreen },
+    AuthRegisterScreen: { screen: AuthRegisterScreen },
+    AuthForgotPasswordScreen: { screen: AuthForgotPasswordScreen },
+    
 }, {
     headerMode: 'none',
-    initialRouteName: 'OnboardingScreen',
+    initialRouteName: 'AuthForgotPasswordScreen',
     navigationOptions: { headerStyle: styles.header }
 });
 export default PrimaryNav;

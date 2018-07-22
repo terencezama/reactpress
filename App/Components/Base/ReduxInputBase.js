@@ -8,13 +8,12 @@ import {
 } from 'react-native';
 export default function ReduxInputBase(props) {
     const { input, meta, meta: { valid, error, visited }, label } = props;
-    console.log(meta)
     const header = error && !valid && visited ? (
         <View style={{flexDirection:'row', alignItems:"center"}}>
-            <RkText style={{marginRight: 4,}}>{label}</RkText>
-            <RkText rkType='error'>{error}</RkText>
+            {/* <RkText style={{marginRight: 4,}}>{label}</RkText> */}
+            <RkText style={{color:'white'}} rkType='basic'>{error}</RkText>
         </View>
-    ) : <RkText >{label}</RkText>
+    ) : (undefined)
 
     return (
         // <Hoshi 
@@ -39,12 +38,13 @@ export default function ReduxInputBase(props) {
             <RkTextInput
                 {...props}
                 // rkType="topLabel"
-                //  placeholder={label}
+                 placeholder={label}
+                // label={error && !valid && visited ?`${label}: ${error}`:label}
                 label={undefined}
                 onChangeText={input.onChange}
                 onBlur={input.onBlur}
                 onFocus={input.onFocus}
-
+                // style={{backgroundColor:'transparent'}}
 
             />
         </View>
