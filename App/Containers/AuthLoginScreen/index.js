@@ -15,6 +15,8 @@ import { Colors, Images, Metrics } from '../../Themes'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import LoginForm from '../../Components/Forms/LoginForm'
 import i18n from 'react-native-i18n'
+import {loginRequest} from '../../Redux/state/network/actions'
+
 class AuthLoginScreen extends Component {
   static navigationOptions = {
     header: null
@@ -24,9 +26,17 @@ class AuthLoginScreen extends Component {
     super(props);
   }
 
+  componentDidMount(){
+    this.props.loginRequest({
+      username:'terence',
+      password:'Knight.01'
+    })
+
+  }
+
   _onSubmit = (data) => {
-    console.log(data);
-    this.navigation.push
+    console.log("before login",data);
+    // this.props.login(data)
   }
 
   render() {
@@ -64,6 +74,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    loginRequest:data=>dispatch(loginRequest(data))
   }
 }
 

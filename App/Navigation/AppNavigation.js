@@ -14,7 +14,7 @@ const PrimaryNav = StackNavigator({
     
 }, {
     headerMode: 'none',
-    initialRouteName: 'AuthForgotPasswordScreen',
+    initialRouteName: 'AuthLoginScreen',
     navigationOptions: { headerStyle: styles.header }
 });
 export default PrimaryNav;
