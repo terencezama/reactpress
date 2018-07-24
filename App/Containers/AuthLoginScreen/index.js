@@ -3,7 +3,8 @@ import {
   Keyboard,
   Image,
   View,
-  ScrollView
+  ScrollView,
+  Alert
 } from 'react-native';
 import {
   RkAvoidKeyboard, RkText, RkButton
@@ -15,8 +16,8 @@ import { Colors, Images, Metrics } from '../../Themes'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import LoginForm from '../../Components/Forms/LoginForm'
 import i18n from 'react-native-i18n'
-import {loginRequest} from '../../Redux/state/network/actions'
-import {Loading} from '../../Components'
+import { loginRequest, loginInitial } from '../../Redux/state/network/actions'
+import { Loading,Error } from '../../Components'
 
 class AuthLoginScreen extends Component {
   static navigationOptions = {
@@ -24,30 +25,38 @@ class AuthLoginScreen extends Component {
   };
 
   state = {
-    loading : false
+    loading: false,
+    login: undefined,
+    errorVisible: false
   }
 
   constructor(props) {
     super(props);
   }
 
-  componentDidMount(){
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.login !== prevState.login) {
+      if(nextProps.login.error){
+        return { errorVisible: true };
+      }
+      
+    }
+    return null;
+  }
 
+  componentDidUpdate(){
 
   }
 
   _onSubmit = (data) => {
-    console.log("before login",data);
-    this.setState({
-      loading:true 
-    })
-    // this.props.login(data)
+    this.props.loginRequest(data);
   }
 
   render() {
     return (
       <View style={styles.screen}>
-      <Loading isLoading={this.state.loading}/>
+        <Loading isLoading={this.props.login.fetching} />
+        <Error onClose={()=>{this.props.reset()}} visible={this.props.login.error != null} message={this.props.login.error?i18n.t(this.props.login.error.code):'test'} />
         <LinearGradient
           style={styles.background}
           colors={Colors.onboarding.background}
@@ -64,8 +73,8 @@ class AuthLoginScreen extends Component {
                 <RkText rkType={'center logo'}>{i18n.t('app_name')} </RkText>
               </View>
               <LoginForm style={{ flex: 1 }} onSubmit={this._onSubmit}
-              onRegister={()=>{this.props.navigation.push('AuthRegisterScreen')}}
-              onForgotPassword={()=>{this.props.navigation.push('AuthForgotPasswordScreen')}}
+                onRegister={() => { this.props.navigation.push('AuthRegisterScreen') }}
+                onForgotPassword={() => { this.props.navigation.push('AuthForgotPasswordScreen') }}
               />
 
             </View>
@@ -77,13 +86,16 @@ class AuthLoginScreen extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('login',state.login)
   return {
+    login: state.login
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginRequest:data=>dispatch(loginRequest(data))
+    loginRequest: data => dispatch(loginRequest(data)),
+    reset: data => dispatch(loginInitial(data))
   }
 }
 

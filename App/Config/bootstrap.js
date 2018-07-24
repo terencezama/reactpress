@@ -49,6 +49,11 @@ export let bootstrap = () => {
       fontSize:15
     }
   },"rounded");
+  RkTheme.setType('RkText', 'errorView', {
+    // fontFamily: theme => theme.fonts.family.logo,
+    color: theme => theme.colors.logo,
+    fontSize: 20
+  });
 
   /*
    RkText types

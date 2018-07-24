@@ -7,9 +7,8 @@ export function* login (api,action) {
 
   
   if (response.ok) {
-    console.log(response.data)
     yield put(loginSuccess(response.data))
   } else {
-    yield put(loginFailure())
+    yield put(loginFailure(response.data))
   }
 }

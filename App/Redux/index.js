@@ -2,11 +2,12 @@ import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from '../Sagas/'
 import { reducer as form } from 'redux-form'
+import login from './state/network/login/reducers'
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
   nav: require('./NavigationRedux').reducer,
-  form:form,
-  login:require('./state/network/login/reducers')
+  form,
+  login
 
 })
 

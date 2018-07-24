@@ -5,7 +5,6 @@ import {
   REGISTER_REQUEST
 } from '../Redux/state/network/types'
 import { login} from '../Redux/state/network/login/sagas'
-import {register} from '../Redux/state/network/register/sagas'
 
 
 /* ------------- Types ------------- */
@@ -34,7 +33,6 @@ export default function * root () {
     // some sagas receive extra parameters in addition to an action
     // takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
 
-    takeLatest(LOGIN_REQUEST,login,wpApi),
-    takeLatest(REGISTER_REQUEST,register,wpApi)
+    takeLatest(LOGIN_REQUEST,login,wpApi)
   ])
 }

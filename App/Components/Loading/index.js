@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, Modal } from 'react-native';
 import LottieView from 'lottie-react-native'
 import PropTypes from 'prop-types'
+import MIcon from 'react-native-vector-icons/MaterialIcons'
+import styles from './styles'
 export default class Loading extends Component {
 
     state = {
@@ -24,9 +26,9 @@ export default class Loading extends Component {
                 visible={this.props.isLoading}
                 onRequestClose={() => { }}
             >
-                <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.7)' }}>
+                <View style={styles.background}>
                     <LottieView
-                        style={{ flex: 1, }}
+                        style={styles.animationView}
                         ref={animation => {
                             this.animation = animation;
                         }}

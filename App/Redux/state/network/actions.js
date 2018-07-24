@@ -1,18 +1,12 @@
 import {
+    loginInitial,
     loginRequest,
     loginFailure,
     loginSuccess
 } from './login/actions';
-import {
-    registerRequest,
-    registerFailure,
-    registerSuccess
-} from './register/actions';
 export {
+    loginInitial,
     loginRequest,
     loginSuccess,
     loginFailure,
-    registerRequest,
-    registerSuccess,
-    registerFailure,
 };
