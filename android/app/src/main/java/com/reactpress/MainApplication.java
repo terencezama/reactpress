@@ -3,14 +3,17 @@ package com.reactpress;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.lottie.LottiePackage;
+import com.tradle.react.UdpSocketsModule;
+import com.peel.react.TcpSocketsModule;
+import com.peel.react.rnos.RNOSModule;
+import com.bitgo.randombytes.RandomBytesPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import org.reactnative.camera.RNCameraPackage;
-import com.imagepicker.ImagePickerPackage;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -32,15 +35,17 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LottiePackage(),
+            new UdpSocketsModule(),
+            new TcpSocketsModule(),
+            new RNOSModule(),
+            new RandomBytesPackage(),
             new RNI18nPackage(),
             new VectorIconsPackage(),
             new LinearGradientPackage(),
             new ImagePickerPackage(),
             new ReactNativeConfigPackage(),
-            new RNCameraPackage(),
-            new ImagePickerPackage(),
-            new ReactNativeConfigPackage(),
-            new VectorIconsPackage()
+            new RNCameraPackage()
       );
     }
 

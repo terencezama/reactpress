@@ -1,10 +1,18 @@
 
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
-//ck_367f16877f17257f9c77d30b26ed4e768f015043 key
-//cs_eeb0551c6e6d2abb356d151a3ceb68cff1c16a3e secret
+import OAuth from 'oauth-1.0a'
+import crypto from 'react-native-crypto'
 
-// our "constructor"
+const randomString = (length) => {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  for(var i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+}
+
 const create = (baseURL = 'http://localhost:8888') => {
   // ------
   // STEP 1
@@ -22,6 +30,44 @@ const create = (baseURL = 'http://localhost:8888') => {
     // 10 second timeout...
     timeout: 10000
   })
+  
+  const consumerKey = 'ck_367f16877f17257f9c77d30b26ed4e768f015043';
+  const consumerSecret = 'cs_eeb0551c6e6d2abb356d151a3ceb68cff1c16a3e';
+
+  const oauth = OAuth({
+    consumer: { key: consumerKey, secret: consumerSecret},
+    signature_method: 'HMAC-SHA1',
+    hash_function(base_string, key) {
+      return crypto.createHmac('sha1', key).update(base_string).digest('base64');
+    }
+  });
+  
+  _post = (path,data) =>{
+    const request_data = {
+      url: baseURL+path,
+      method: 'POST'
+    };
+    const authorization = oauth.toHeader(oauth.authorize(request_data));
+    api.setHeader('Authorization',authorization.Authorization);
+    return api.post(path,data);
+  }
+
+  _get = (path) => {
+    const request_data = {
+      url: baseURL+path,
+      method: 'GET'
+    };
+    const authorization = oauth.toHeader(oauth.authorize(request_data));
+    api.setHeader('Authorization',authorization.Authorization);
+    return api.post(path);
+  }
+  // const wcApi = new WooCommerceAPI({
+  //   url: baseURL,
+  //   consumerKey: 'ck_367f16877f17257f9c77d30b26ed4e768f015043',
+  //   consumerSecret: 'cs_eeb0551c6e6d2abb356d151a3ceb68cff1c16a3e',
+  //   wpAPI: true,
+  //   version: 'wc/v2'
+  // });
 
   // ------
   // STEP 2
@@ -39,7 +85,7 @@ const create = (baseURL = 'http://localhost:8888') => {
   //
 const login = (data) => api.post('/wp-json/jwt-auth/v1/token',data);
 const forgotPassword = (data) => api.post('/wp-json/wp/v2/users/lostpassword',data);
-
+const register = (data) => _post('/wp-json/wc/v2/customers',data);
   
 
   // ------
@@ -57,7 +103,9 @@ const forgotPassword = (data) => api.post('/wp-json/wp/v2/users/lostpassword',da
   return {
     // a list of the API functions from step 2
     login,
-    forgotPassword
+    forgotPassword,
+    register
+    // register
     
   }
 }

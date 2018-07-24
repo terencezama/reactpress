@@ -2,7 +2,7 @@ import './App/Config/ReactotronConfig'
 import { AppRegistry } from 'react-native'
 import App from './App/Containers/App'
 import I18n from 'react-native-i18n';
-
+import './shim.js'
 // Import all locales
 import en from './App/locales/en.json';
 

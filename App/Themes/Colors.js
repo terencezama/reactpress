@@ -1,4 +1,4 @@
-const gradient = ['#f12711','#f5af19']
+const gradient = ['#F27941','#F27941','#084B8D']
 const colors = {
   onboarding:{
     background: gradient,

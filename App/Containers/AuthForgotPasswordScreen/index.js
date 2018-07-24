@@ -15,6 +15,8 @@ import { Colors, Images, Metrics } from '../../Themes'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import ForgotPasswordForm from '../../Components/Forms/ForgotPasswordForm'
 import i18n from 'react-native-i18n'
+import navigator from '../../Services/NavigationService'
+
 class AuthForgotPasswordScreen extends Component {
   static navigationOptions = {
     header: null
@@ -26,8 +28,12 @@ class AuthForgotPasswordScreen extends Component {
 
   _onSubmit = (data) => {
     console.log(data);
-    this.navigation.push
+    
   }
+
+
+
+ 
 
   render() {
     return (
@@ -47,7 +53,10 @@ class AuthForgotPasswordScreen extends Component {
                 <Image style={styles.logo} source={Images.logo} resizeMode={"contain"} />
                 <RkText rkType={'center logo'}>{i18n.t('app_name')} </RkText>
               </View>
-              <ForgotPasswordForm style={{ flex: 1 }} onSubmit={this._onSubmit} />
+              <ForgotPasswordForm style={{ flex: 1 }} onSubmit={this._onSubmit}
+              onLogin={()=>{navigator('AuthLoginScreen',this.props.nav.routes,this.props.navigation);}}
+              onRegister={()=>{navigator('AuthRegisterScreen',this.props.nav.routes,this.props.navigation);}}
+              />
 
             </View>
           </ScrollView>
@@ -59,6 +68,7 @@ class AuthForgotPasswordScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    nav:state.nav
   }
 }
 
