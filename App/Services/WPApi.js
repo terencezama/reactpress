@@ -627,9 +627,134 @@ const create = (baseURL = 'http://localhost:8888') => {
     //endregion
  
     //region Product Attributes
-
+    createProductAttribute,
+    getProductAttribute,
+    listProductAttributes,
+    updateProductAttribute,
+    deleteProductAttribute,
+    batchUpdateProductAttribute,
     //endregion
 
+    //region Product Attribute Terms
+    createAttributeTerm,
+    getAttributeTerm,
+    listAttributeTerms,
+    updateAttributeTerm,
+    deleteAttributeTerm,
+    batchUpdateAttributeTerms,
+    //endregion
+  
+    //region Product Categories
+    createProductCategory,
+    getProductCategory,
+    listProductCategories,
+    updateProductCategory,
+    deleteProductCategory,
+    batchUpdateProductCategories,
+    //endregion
+  
+    //region Product Shipping Class
+    createShippingClass,
+    getShippingClass,
+    listShippingClasses,
+    updateShippingClass,
+    deleteShippingClass,
+    batchUpdateShippingClasses,
+    //endregion
+  
+    //region Product Tags
+    createProductTag,
+    getProductTag,
+    listProductTags,
+    updateProductTag,
+    deleteProductTag,
+    batchUpdateProductTags,
+    //endregion
+
+    //region Reports
+    listReports,
+    listReportsSales,
+    listReportsTopSellers,
+    //endregion
+    
+    //region TaxRates
+    createTaxRate,
+    getTaxtRate,
+    listTaxRates,
+    updateTaxRate,
+    deleteTaxRate,
+    batchUpdateTaxRates,
+    //endregion
+
+    //region TaxClasses
+    createTaxClass,
+    listTaxClasses,
+    deleteTaxClass,
+    //endregion
+
+    //region Webhooks
+    createWebhook,
+    getWebhook,
+    listWebhooks,
+    updateWebhook,
+    deleteWebhook,
+    batchUpdateWebhooks,
+    getWebhookDelivery,
+    listWebhookDeliveries,
+    //endregion
+
+    //region Settings
+    listSettingsGroups,
+    //endregion
+
+    //region Setting Options
+    getSettingOption,
+    listSettingsOptions,
+    updateSettingOption,
+    batchUpdateSettingOptions,
+    //endregion
+
+    //region Payment Gateways
+    getPaymentGateway,
+    listPaymentGateways,
+    updatePaymentGateway,
+    //endregion
+  
+    //region Shipping Zones
+    createShippingZone,
+    getShippingZone,
+    listShippingZones,
+    updateShippingZone,
+    deleteShippingZone,
+    //endregion
+  
+    //region Shipping Zone Locations
+    listShippingZoneLocations,
+    updateShippingZoneLocation,
+    //endregion
+  
+    //region Shipping Zone Methods
+    createShippinZoneMethod,
+    getShippingZoneMethod,
+    listShippingZoneMethods,
+    updateShippingZoneMethod,
+    deleteShippingZoneMethod,
+    //endregion
+
+    //region Shipping Methods
+    getShippingMethod,
+    listShippingMehthods,
+    //endregion
+
+    //region System Status
+    listSystemStatusItems,
+    //endregion
+
+    //region Sytem Status Tools
+    getSystemStatusTool,
+    listSystemStatusTools,
+    runSystemStatusTool,
+    //endregion
   }
 }
 
