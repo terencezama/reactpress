@@ -15,7 +15,9 @@
     "auth_submit":"Submit",
 
     "[jwt_auth] invalid_username":"Please enter a valid username.",
-    "[jwt_auth] incorrect_password":"The password you entered for the username is incorrect."
+    "[jwt_auth] incorrect_password":"The password you entered for the username is incorrect.",
+
+    "error_network":"Something wrong please check your internet connection."
 
     
 }

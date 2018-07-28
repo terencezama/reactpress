@@ -32,6 +32,7 @@ class AuthLoginScreen extends Component {
 
   constructor(props) {
     super(props);
+    
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -45,7 +46,7 @@ class AuthLoginScreen extends Component {
   }
 
   componentDidUpdate(){
-
+    
   }
 
   _onSubmit = (data) => {
@@ -61,8 +62,9 @@ class AuthLoginScreen extends Component {
           style={styles.background}
           colors={Colors.onboarding.background}
         />
-        <KeyboardAwareScrollView>
+        <KeyboardAwareScrollView keyboardShouldPersistTaps="always">
           <ScrollView
+          keyboardShouldPersistTaps="always"
             style={styles.screen}
             ref={component => this.scrollView = component}
           >

@@ -15,7 +15,7 @@ import { Colors, Images, Metrics } from '../../Themes'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import RegisterForm from '../../Components/Forms/RegisterForm'
 import i18n from 'react-native-i18n'
-import {registerRequest} from '../../Redux/state/network/actions'
+
 import navigator from '../../Services/NavigationService'
 class AuthRegisterScreen extends Component {
   static navigationOptions = {
@@ -27,11 +27,7 @@ class AuthRegisterScreen extends Component {
   }
 
   componentDidMount(){
-    this.props.registerRequest({
-      username:'terencee',
-      password:'Knight.01',
-      email:'terence.estore@gmail.com'
-    })
+
   }
 
 
@@ -80,7 +76,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    registerRequest:data=>dispatch(registerRequest(data))
+    // registerRequest:data=>dispatch(registerRequest(data))
   }
 }
 

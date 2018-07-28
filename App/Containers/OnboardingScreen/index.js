@@ -25,6 +25,10 @@ class OnboardingScreen extends Component {
     super(props);
   }
 
+  componentDidMount(){
+    
+  }
+
   render() {
     return (
       <LinearGradient

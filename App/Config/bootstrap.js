@@ -44,14 +44,16 @@ export let bootstrap = () => {
     labelColor: theme => theme.colors.auth.input.label,
     placeholderTextColor: theme => theme.colors.auth.input.placeholder,
     underlineColor: theme => theme.colors.auth.input.line,
-    // height:50,
+    height:60,
+    borderRadius:30,
     label:{
       fontSize:15
     }
-  },"rounded");
+  });
   RkTheme.setType('RkText', 'errorView', {
     // fontFamily: theme => theme.fonts.family.logo,
     color: theme => theme.colors.logo,
+    textAlign:'center',
     fontSize: 20
   });
 
