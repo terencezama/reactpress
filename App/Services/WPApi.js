@@ -378,13 +378,110 @@ const create = (baseURL = 'http://localhost:8888') => {
   //endregion
   //region Product Categories
   /*
-  /wp-json/wc/v2/products/categories/<id>
+  /wp-json/wc/v2/products/categories/${categoryId}
   */
   /*Create ProductCategory
   */
   const createProductCategory = (data) => _post(`/wp-json/wc/v2/products/categories`,data);
   /*Retrive Product Category
+  categoryId
   */
+  const getProductCategory = (categoryId) => _get(`/wp-json/wc/v2/products/categories/${categoryId}`);
+  /*List ProductCategories
+  page        - int
+  per_page    - int
+  search      - string
+  exclude     - [] ids
+  include     - [] ids
+  order       - string asc|desc
+  orderby     - string id|include|name|slug|term_group|description|count
+  hide_empty  - boolean
+  parent      - int
+  product     - int
+  slug        - string
+  */
+  const listProductCategories = (params) => _get(`/wp-json/wc/v2/products/categories`,params);
+  /*Update ProductCategory
+  */
+  const updateProductCategory = (categoryId,data) => _put(`/wp-json/wc/v2/products/categories/${categoryId}`,data);
+  /*Delete ProductCategory
+  force
+  */
+  const deleteProductCategory = (categoryId,params) => _delete(`/wp-json/wc/v2/products/categories/${categoryId}`,params);
+  /*Batch UpdateProductCategories
+  */
+  const batchUpdateProductCategories = (data) => _post(`/wp-json/wc/v2/products/categories/batch`,data);
+  //endregion
+  //region Product ShippingClasses
+  /*
+  /wp-json/wc/v2/products/shipping_classes/${shippingClassId}
+  */
+  /*Create ShippingClass
+  */
+  const createShippingClass = (data) => _post(`/wp-json/wc/v2/products/shipping_classes`,data);
+  /*Retrieve ShippingClass
+  */
+  const getShippingClass = (shippingClassId) => _get(`/wp-json/wc/v2/products/shipping_classes/${shippingClassId}`);
+  /*List All ShippingClasses
+  page        - int
+  per_page    - int
+  search      - string
+  exclude     - [] ids
+  include     - [] ids
+  offset      - int
+  order       - string asc|desc
+  orderby     - string id|include|name|slug|term_group|description|count
+  hide_empty  - boolean
+  product     - int
+  slug        - string
+  */
+  const listShippingClasses = (params) => _get(`/wp-json/wc/v2/products/shipping_classes`,params);
+  /*Update ShippingClass
+  */
+  const updateShippingClass = (shippingClassId,data) => _put(`/wp-json/wc/v2/products/shipping_classes/${shippingClassId}`,data);
+  /*Delete ShippingClass
+  force
+  */
+  const deleteShippingClass = (shippingClassId,params) => _delete(`/wp-json/wc/v2/products/shipping_classes/${shippingClassId}`,params);
+  /*Batch Update ShippingClasses
+  */
+  const batchUpdateShippingClasses = (data) => _post(`/wp-json/wc/v2/products/shipping_classes/batch`,data);
+  //endregion
+  //region Product Tags
+  /*
+  /wp-json/wc/v2/products/tags/${tagId}
+  */
+  /*Create ProductTag
+  */
+  const createProductTag = (data) => _post(`/wp-json/wc/v2/products/tags`,data);
+  /*Retrive ProductTag
+  tagId
+  */
+  const getProductTag = (tagId) => _get(`/wp-json/wc/v2/products/tags/${tagId}`);
+  /*List All ProductTags
+  page        - int
+  per_page    - int
+  search      - string
+  exclude     - [] ids
+  include     - [] ids
+  offset      - int
+  order       - string asc|desc
+  orderby     - string id|include|name|slug|term_group|description|count
+  hide_empty  - boolean
+  product     - int
+  slug        - string
+  */
+  const listProductTags = (params) => _get(`/wp-json/wc/v2/products/tags`,params);
+  /*Update ProductTag
+  */
+  const updateProductTag = (tagId,data) => _put(`/wp-json/wc/v2/products/tags/${tagId}`,data);
+  /*Delete ProductTag
+  force
+  */
+  const deleteProductTag  = (tagId,params) => _delete(`/wp-json/wc/v2/products/tags/${tagId}`,params);
+  /*BatchUpdate ProductTags
+  */
+  const batchUpdateProductTags = (data) => _post(`/wp-json/wc/v2/products/tags/batch`,data);
   //endregion
   //API END
   //########################################################
