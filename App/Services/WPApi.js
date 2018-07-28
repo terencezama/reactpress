@@ -483,6 +483,24 @@ const create = (baseURL = 'http://localhost:8888') => {
   */
   const batchUpdateProductTags = (data) => _post(`/wp-json/wc/v2/products/tags/batch`,data);
   //endregion
+  //region Reports
+  /*ListAllReports
+  */
+  const listReports = () => _get(`/wp-json/wc/v2/reports`);
+  /*ListReportsSales
+  period      - string - week|month|last_month|year
+  date_min    - string - YYYY-MM-DD
+  date_max    - string - YYYY-MM-DD
+  */
+  const listReportsSales = (params) => _get(`/wp-json/wc/v2/reports/sales`,params);
+  /*List Top Sellers report 
+  period      - string - week|month|last_month|year
+  date_min    - string - YYYY-MM-DD
+  date_max    - string - YYYY-MM-DD
+  */
+  const listReportsTopSellers = (params) => _get(`/wp-json/wc/v2/reports/top_sellers`,params);
+  //endregion
+  
   //API END
   //########################################################
   //endregion
