@@ -500,7 +500,71 @@ const create = (baseURL = 'http://localhost:8888') => {
   */
   const listReportsTopSellers = (params) => _get(`/wp-json/wc/v2/reports/top_sellers`,params);
   //endregion
-  
+  //region TaxRate
+  const createTaxRate = (data) => _post(`/wp-json/wc/v2/taxes`,data);
+  const getTaxtRate = (taxRateId) => _get(`/wp-json/wc/v2/taxes/${taxRateId}`);
+  const listTaxRates = (params) => _get(`/wp-json/wc/v2/taxes`,params);
+  const updateTaxRate = (taxRateId,data) => _put(`/wp-json/wc/v2/taxes/${taxRateId}`,data);
+  const deleteTaxRate = (taxRateId,params) => _delete(`/wp-json/wc/v2/taxes/${taxRateId}`,params);
+  const batchUpdateTaxRates = (data) => _post(`/wp-json/wc/v2/taxes/batch`);
+  //endregion
+  //region TaxClass
+  const createTaxClass = (data) => _post(`/wp-json/wc/v2/taxes/classes`,data);
+  const listTaxClasses = () => _get(`/wp-json/wc/v2/taxes/classes`);
+  const deleteTaxClass = (slug,params) => _delete(`/wp-json/wc/v2/taxes/classes/${slug}`,params);
+
+  //endregion
+  //region Webhooks
+  const createWebhook = (data) => _post(`/wp-json/wc/v2/webhooks`,data);
+  const getWebhook = (webhookId) => _get(`/wp-json/wc/v2/webhooks/${webhookId}`);
+  const listWebhooks = (params) => _get(`/wp-json/wc/v2/webhooks`,params);
+  const updateWebhook = (webhookId,data) => _put(`/wp-json/wc/v2/webhooks/${webhookId}`,data);
+  const deleteWebhook = (webhookId,params) => _delete(`/wp-json/wc/v2/webhooks/${webhookId}`,params);
+  const batchUpdateWebhooks = (data) => _post(`/wp-json/wc/v2/webhooks/batch`,data);
+  const getWebhookDelivery = (webhookId,deliveryId) => _get(`/wp-json/wc/v2/webhooks/${webhookId}/deliveries/${deliveryId}`);
+  const listWebhookDeliveries = (webhookId) => _get(`/wp-json/wc/v2/webhooks/${webhookId}/deliveries`);
+  //endregion 
+  //region Settings
+  const listSettingsGroups = () => _get(`/wp-json/wc/v2/settings`);
+  const getSettingOption = (groupId,id) => _get(`/wp-json/wc/v2/settings/${groupId}/${id}`);
+  const listSettingsOptions = (id) => _get(`/wp-json/wc/v2/settings/${id}`);
+  const updateSettingOption = (groupId,id,data) => _put(`/wp-json/wc/v2/settings/${groupId}/${id}`,data);
+  const batchUpdateSettingOptions = (id,data) => _post(`/wp-json/wc/v2/settings/${id}/batch`,data);
+
+  //endregion
+  //region PaymentGateways
+  const getPaymentGateway = (id) => _get(`/wp-json/wc/v2/payment_gateways/${id}`);
+  const listPaymentGateways = () => get(`/wp-json/wc/v2/payment_gateways`);
+  const updatePaymentGateway = (id,data) => _put(`/wp-json/wc/v2/payment_gateways/${id}`,data);
+  //endregion
+  //region ShippingZones
+  const createShippingZone = (data) => _post(`/wp-json/wc/v2/shipping/zones`,data);
+  const getShippingZone = (id) => _get(`/wp-json/wc/v2/shipping/zones/${id}`);
+  const listShippingZones = () => _get(`/wp-json/wc/v2/shipping/zones`);
+  const updateShippingZone = (id,data) => _put(`/wp-json/wc/v2/shipping/zones/${id}`,data);
+  const deleteShippingZone = (id,params) => _delete(`/wp-json/wc/v2/shipping/zones/${id}`,params);
+  //endregion
+  //region ShippingZoneLocations
+  const listShippingZoneLocations = (id) => _get(`/wp-json/wc/v2/shipping/zones/${id}/locations`);
+  const updateShippingZoneLocation = (id,data) => _put(`/wp-json/wc/v2/shipping/zones/${id}/locations`,data);
+  //endregion
+  //region ShippingZoneMethods
+  const createShippinZoneMethod = (id,data) => _post(`/wp-json/wc/v2/shipping/zones/${id}/methods`,data);
+  const getShippingZoneMethod = (zoneId,id) => _get(`/wp-json/wc/v2/shipping/zones/${zoneId}/methods/${id}`);
+  const listShippingZoneMethods = (zoneId) => _get(`/wp-json/wc/v2/shipping/zones/${zoneId}/methods`);
+  const updateShippingZoneMethod = (zoneId,id,data) => _put(`/wp-json/wc/v2/shipping/zones/${zoneId}/methods/${id}`,data);
+  const deleteShippingZoneMethod = (zoneId,id,params) => _delete(`/wp-json/wc/v2/shipping/zones/${zoneId}/methods/${id}`,params);
+  //endregion
+  //region ShippinMethod
+  const getShippingMethod = (id) => _get(`/wp-json/wc/v2/shipping_methods/${id}`);
+  const listShippingMehthods = () => _get(`/wp-json/wc/v2/shipping_methods`);
+  //endregion
+  //region SystemStatus
+  const listSystemStatusItems = () => _get(`/wp-json/wc/v2/system_status`);
+  const getSystemStatusTool = (id) => _get(`/wp-json/wc/v2/system_status/tools/${id}`);
+  const listSystemStatusTools = () => _get(`/wp-json/wc/v2/system_status/tools`);
+  const runSystemStatusTool = (id) => _put(`/wp-json/wc/v2/system_status/tools/${id}`);
+  //endregion
   //API END
   //########################################################
   //endregion
@@ -562,6 +626,9 @@ const create = (baseURL = 'http://localhost:8888') => {
     batchUpdateProductVariation,
     //endregion
  
+    //region Product Attributes
+
+    //endregion
 
   }
 }
