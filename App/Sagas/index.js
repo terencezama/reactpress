@@ -2,9 +2,10 @@ import { takeLatest, all } from 'redux-saga/effects'
 import WPApi from '../Services/WPApi'
 import {
   LOGIN_REQUEST,
-  REGISTER_REQUEST
+  PRODUCTS_REQUEST
 } from '../Redux/state/network/types'
 import { login} from '../Redux/state/network/login/sagas'
+import {products} from '../Redux/state/network/products/sagas'
 
 
 /* ------------- Types ------------- */
@@ -33,6 +34,7 @@ export default function * root () {
     // some sagas receive extra parameters in addition to an action
     // takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
 
-    takeLatest(LOGIN_REQUEST,login,wpApi)
+    takeLatest(LOGIN_REQUEST,login,wpApi),
+    takeLatest(PRODUCTS_REQUEST,products,wpApi)
   ])
 }
