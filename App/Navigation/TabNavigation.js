@@ -1,9 +1,9 @@
 import {TabNavigator} from 'react-navigation'
-import {ProductsScreen} from '../Containers'
-
+import {ProductsScreen, CategoriesScreen} from '../Containers'
+import ShopNavigation from './ShopNavigation'
 export default TabNavigator({
-    Shop: ProductsScreen,
-    Settings: ProductsScreen,
+    shop: ShopNavigation,
+    settings: ProductsScreen,
   },{
-
+    // headerMode:'None'
   });

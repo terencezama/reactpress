@@ -10,6 +10,12 @@ import {
     productsFailure,
     productsSuccess
 } from './products/actions';
+import {
+    categoriesInitial,
+    categoriesRequest,
+    categoriesFailure,
+    categoriesSuccess
+} from './categories/actions';
 export {
     loginInitial,
     loginRequest,
@@ -18,5 +24,9 @@ export {
     productsInitial,
     productsRequest,
     productsSuccess,
-    productsFailure
+    productsFailure,
+    categoriesInitial,
+    categoriesRequest,
+    categoriesSuccess,
+    categoriesFailure
 };

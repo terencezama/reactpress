@@ -16,7 +16,7 @@ const PrimaryNav = StackNavigator({
     AuthForgotPasswordScreen: { screen: AuthForgotPasswordScreen },
     tab:{screen:TabNavigation}
 }, {
-    headerMode: Platform.OS == 'ios'? 'float' : 'float',
+    headerMode: 'none',
     initialRouteName: 'tab',
     navigationOptions: { 
         headerStyle: styles.header,

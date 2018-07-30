@@ -4,6 +4,7 @@ import AuthForgotPasswordScreen from './AuthForgotPasswordScreen';
 import ProductsScreen from './ProductsScreen';
 import CartScreen from './CartScreen';
 import WishListScreen from './WishListScreen';
+import CategoriesScreen from './CategoriesScreen';
 import OnboardingScreen from './OnboardingScreen';
 export {
     AuthLoginScreen,
@@ -12,5 +13,6 @@ export {
     AuthForgotPasswordScreen,
     ProductsScreen,
     CartScreen,
-    WishListScreen
+    WishListScreen,
+    CategoriesScreen
 };

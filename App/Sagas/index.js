@@ -2,11 +2,12 @@ import { takeLatest, all } from 'redux-saga/effects'
 import WPApi from '../Services/WPApi'
 import {
   LOGIN_REQUEST,
-  PRODUCTS_REQUEST
+  PRODUCTS_REQUEST,
+  CATEGORIES_REQUEST
 } from '../Redux/state/network/types'
 import { login} from '../Redux/state/network/login/sagas'
 import {products} from '../Redux/state/network/products/sagas'
-
+import {categories} from '../Redux/state/network/categories/sagas'
 
 /* ------------- Types ------------- */
 
@@ -35,6 +36,7 @@ export default function * root () {
     // takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
 
     takeLatest(LOGIN_REQUEST,login,wpApi),
-    takeLatest(PRODUCTS_REQUEST,products,wpApi)
+    takeLatest(PRODUCTS_REQUEST,products,wpApi),
+    takeLatest(CATEGORIES_REQUEST,categories,wpApi)
   ])
 }

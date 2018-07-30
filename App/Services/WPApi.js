@@ -35,6 +35,9 @@ const create = (baseURL = 'http://localhost:8888') => {
 
   //region Networking
   //########################################################
+  _urlParams = (params) => {
+    return Object.entries(params).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&');
+  }
   _post = (path, data) => {
     const request_data = {
       url: baseURL + path,
@@ -46,10 +49,13 @@ const create = (baseURL = 'http://localhost:8888') => {
   }
 
   _get = (path, params) => {
+    let urlParams = ''
+    if(Object.keys(params).length > 0)urlParams+='?'+_urlParams(params)
     const request_data = {
-      url: baseURL + path,
+      url: baseURL + path + urlParams,
       method: 'GET'
     };
+    console.log('url+1',request_data.url);
     const authorization = oauth.toHeader(oauth.authorize(request_data));
     api.setHeader('Authorization', authorization.Authorization);
     return api.get(path, params);

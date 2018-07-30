@@ -4,12 +4,14 @@ import rootSaga from '../Sagas/'
 import { reducer as form } from 'redux-form'
 import login from './state/network/login/reducers'
 import products from './state/network/products/reducers'
+import categories from './state/network/categories/reducers'
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
   nav: require('./NavigationRedux').reducer,
   form,
   login,
-  products
+  products,
+  categories
 
 })
 
